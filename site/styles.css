@@ -94,8 +94,9 @@ img { display: block; max-width: 100%; }
 
 .photo-filter,
 .photo-row img,
+.hero-bg img,
 .footer-portrait {
-  filter: contrast(1.08) saturate(1.12) brightness(1.02) sepia(0.04);
+  filter: contrast(1.08) saturate(1.12) brightness(1.02) sepia(0.07);
 }
 
 /* ---------- Header ---------- */
@@ -113,14 +114,21 @@ img { display: block; max-width: 100%; }
   width: 100%;
   z-index: 0;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 42%, transparent 60%);
-  mask-image: linear-gradient(to bottom, #000 42%, transparent 60%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 48%, transparent 78%);
+  mask-image: linear-gradient(to bottom, #000 48%, transparent 78%);
 }
 
 .hero-bg img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.34);
 }
 
 .hero-top,
@@ -141,6 +149,9 @@ img { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 6mm;
+  padding: 5mm 8mm;
+  border-radius: var(--radius);
+  background: rgba(241, 236, 225, 0.82);
 }
 
 .hero-top-left .unicamp-mark {
@@ -200,29 +211,31 @@ img { display: block; max-width: 100%; }
 .hero-text .line-green {
   font-size: 19mm;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--lime);
   letter-spacing: 0.5px;
 }
 
 .hero-text .line-black {
   font-size: 37mm;
   font-weight: 800;
-  color: var(--black);
+  color: #fff;
   letter-spacing: -0.3px;
 }
 
 .hero-text .line-black mark {
   background: var(--lime);
-  color: var(--black);
+  color: transparent;
   padding: 0 3mm;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  -webkit-mask-image: url(#unicamp-cutout);
+  mask-image: url(#unicamp-cutout);
 }
 
 .subtitle {
   font-size: 12mm;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--lime);
   margin-top: 6mm;
   margin-bottom: 4mm;
 }
@@ -230,11 +243,11 @@ img { display: block; max-width: 100%; }
 .intro {
   font-size: 8mm;
   line-height: 1.45;
-  color: var(--text);
+  color: #fff;
   max-width: 230mm;
 }
 
-.intro strong { color: var(--black); }
+.intro strong { color: #fff; }
 
 /* ---------- Timeline ---------- */
 
@@ -261,7 +274,7 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 40mm 1fr;
   align-items: start;
   column-gap: 7mm;
-  padding: 9.5mm 0;
+  padding: 5.62mm 0;
   position: relative;
 }
 
@@ -413,7 +426,7 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
 }
 
-.photo-row.cols-4 img { height: 64mm; }
+.photo-row.cols-4 img { height: 76mm; }
 
 .photo-row figcaption {
   background: var(--dark);
@@ -423,6 +436,10 @@ img { display: block; max-width: 100%; }
   text-align: center;
   padding: 3.4mm 2mm;
   line-height: 1.25;
+  min-height: 20.5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ---------- Impact ---------- */

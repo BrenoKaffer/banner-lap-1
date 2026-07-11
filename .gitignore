@@ -9,3 +9,6 @@ image.png
 # Artefatos gerados por site/export-pdf.mjs (recrie com: cd site && node export-pdf.mjs)
 banner-90x120.pdf
 preview.png
+
+# Fotos brutas de origem (não fazem parte do site, já usadas para gerar os assets finais)
+novas fotos/
